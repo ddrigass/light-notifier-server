@@ -31,14 +31,5 @@
             <th>@lang('Timezone')</th>
             <td>{{ $logged_in_user->timezone ? str_replace('_', ' ', $logged_in_user->timezone) : __('N/A') }}</td>
         </tr>
-
-        <tr>
-            <th>@lang('Account Created')</th>
-            <td>@displayDate($logged_in_user->created_at) ({{ $logged_in_user->created_at }})</td>
-        </tr>
-        <tr>
-            <th>@lang('Last Updated')</th>
-            <td>@displayDate($logged_in_user->updated_at) ({{ $logged_in_user->updated_at }})</td>
-        </tr>
     </table>
 </div><!--table-responsive-->
