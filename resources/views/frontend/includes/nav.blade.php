@@ -79,6 +79,12 @@
                             @endif
 
                             <x-utils.link
+                                :href="route('frontend.board.index')"
+                                :active="activeClass(Route::is('frontend.board.index'))"
+                                :text="__('Boards')"
+                                class="dropdown-item"/>
+
+                            <x-utils.link
                                 :href="route('frontend.user.account')"
                                 :active="activeClass(Route::is('frontend.user.account'))"
                                 :text="__('My Account')"

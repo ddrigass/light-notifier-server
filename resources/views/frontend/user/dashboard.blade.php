@@ -12,7 +12,7 @@
                     </x-slot>
 
                     <x-slot name="body">
-                        @lang('You are logged in!')
+                        <a href="{{route('frontend.board.index')}}"></a>
                     </x-slot>
                 </x-frontend.card>
             </div><!--col-md-10-->
