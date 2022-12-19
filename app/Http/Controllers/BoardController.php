@@ -75,12 +75,12 @@ class BoardController extends Controller
 
     public function updateActivity($boardExternalId) {
         $token = request()->header('X-Token', null);
-//        if ($token != "PAq4B0riExaQfjWxrruVs75QhTEuRm7SF9ojY4J4") {
-//            return [
-//                'success' => false,
-//                'message' => 'Bad token'
-//            ];
-//        }
+        if ($token != "PAq4B0riExaQfjWxrruVs75QhTEuRm7SF9ojY4J4") {
+            return [
+                'success' => false,
+                'message' => 'Bad token'
+            ];
+        }
         $board = Board::whereExternalId($boardExternalId)->first();
         $board->last_activity = Carbon::now();
         if (!$board->active) {
