@@ -23,7 +23,7 @@ class Board extends Model
         $lastEnable = Carbon::parse($lastEnable);
         // text about enabling
         if ($enabled) {
-            $text = self::$enabled_text . "\nСвета небыло: " . gmdate('H:i:s', Carbon::now()->diffInSeconds($last_activity));
+            $text = self::$enabled_text . "\nСвета не было: " . gmdate('H:i:s', Carbon::now()->diffInSeconds($last_activity));
         }
         if (!$enabled) {
             $text = self::$disabled_text . "\nСвет был в течении: " . gmdate('H:i:s', Carbon::now()->diffInSeconds($lastEnable));
