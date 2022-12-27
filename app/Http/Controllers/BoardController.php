@@ -11,7 +11,8 @@ class BoardController extends Controller
 {
     private $rules = [
         'external_id' => 'string|required',
-        'chat_id' => 'string|required'
+        'chat_id' => 'string|required',
+        'timeout' => 'int|required'
     ];
 
     /**
@@ -75,7 +76,7 @@ class BoardController extends Controller
 
     public function updateActivity($boardExternalId) {
         $token = request()->header('X-Token', null);
-        if ($token != "PAq4B0riExaQfjWxrruVs75QhTEuRm7SF9ojY4J4") {
+        if ($token != "PAq4B0riExaQfjWxrruVs75QhTEuRm7SF9ojY4J4" && config('app.env') === 'production') {
             return [
                 'success' => false,
                 'message' => 'Bad token'

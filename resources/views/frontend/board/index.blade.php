@@ -24,6 +24,7 @@
                                 <th>External id</th>
                                 <th>Chat id</th>
                                 <th>Last activity</th>
+                                <th>Timeout</th>
                                 <th>Active</th>
                                 <th></th>
                             </tr>
@@ -35,6 +36,7 @@
                                     <td>{{$board->external_id ?? 'none' }}</td>
                                     <td>{{$board->chat_id ?? 'none' }}</td>
                                     <td>{{$board->last_activity}}</td>
+                                    <td>{{$board->timeout}}</td>
                                     <td>
                                         <div class="btn {{$board->active ? 'btn-success' : 'btn-danger'}}">
                                             {{ $board->active ?  'Online' : 'Offline' }}

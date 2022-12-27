@@ -35,6 +35,17 @@
                                 </div>
                             </div><!--form-group-->
 
+                            <div class="form-group row">
+                                <label for="external_id" class="col-md-4 col-form-label text-md-right">Timeout</label>
+
+                                <div class="col-md-6">
+                                    <input type="number" id="timeout" name="timeout"
+                                           class="form-control" placeholder="Timeout"
+                                            required
+                                           value="{{$board->timeout}}"/>
+                                </div>
+                            </div><!--form-group-->
+
                             <button class="btn btn-success mt-2" type="submit">Save</button>
                         </x-forms.patch>
                     </x-slot>
