@@ -44,7 +44,7 @@ class CheckBoards extends Command
         $now = Carbon::now();
         foreach ($boards as $board) {
             if ($board->active) {
-                if (Carbon::parse($board->last_activity)->addSeconds(40) < $now) {
+                if (Carbon::parse($board->last_activity)->addMinutes(2) < $now) {
                     $board->active = false;
                     $board->save();
                 }
