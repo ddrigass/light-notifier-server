@@ -30,7 +30,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach(\App\Models\Board::all() as $key => $board)
+                            @foreach(\App\Models\Board::orderBy('id')->get() as $key => $board)
                                 <tr>
                                     <td>{{$board->id}}</td>
                                     <td>{{$board->external_id ?? 'none' }}</td>
