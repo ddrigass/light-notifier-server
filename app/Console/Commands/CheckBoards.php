@@ -53,10 +53,13 @@ class CheckBoards extends Command
         return 0;
     }
 
-    static function sendMessage($chatId, $text) {
+    static function sendMessage($chatId, $text, $silent = false) {
         $botToken = env("TELEGRAM_BOT_TOKEN");
         try {
-            file_get_contents("https://api.telegram.org/$botToken/sendMessage?chat_id=$chatId&text=$text");
+            $url = "https://api.telegram.org/$botToken/sendMessage?chat_id=$chatId&text=$text";
+            if ($silent)
+                $url.= "&disable_notification=true";
+            file_get_contents($url);
         }
         catch (Exception $e) {
             echo $e->getMessage();

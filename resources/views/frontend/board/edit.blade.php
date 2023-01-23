@@ -41,8 +41,49 @@
                                 <div class="col-md-6">
                                     <input type="number" id="timeout" name="timeout"
                                            class="form-control" placeholder="Timeout"
-                                            required
+                                           required
                                            value="{{$board->timeout}}"/>
+                                </div>
+                            </div><!--form-group-->
+
+                            <div class="form-group row">
+                                <label for="disabled_notifications" class="col-md-4 col-form-label text-md-right form-check-label">Disabled notifications</label>
+
+                                <div class="col-md-6">
+                                    <input type="checkbox" id="disabled_notifications" name="disabled_notifications"
+                                           class="form-check-input" placeholder="Disabled notifications"
+                                        {{$board->disabled_notifications ? 'checked' : ''}}
+                                    />
+                                </div>
+                            </div><!--form-group-->
+
+                            <div class="form-group row">
+                                <label for="enabled_text" class="col-md-4 col-form-label text-md-right">Enabled text</label>
+
+                                <div class="col-md-6">
+                                    <textarea
+                                        class="form-control"
+                                        name="enabled_text"
+                                        id="enabled_text"
+                                        placeholder="Enabled text"
+                                        required
+                                        cols="30"
+                                        rows="10">{!! $board->enabled_text !!}</textarea>
+                                </div>
+                            </div><!--form-group-->
+
+                            <div class="form-group row">
+                                <label for="external_id" class="col-md-4 col-form-label text-md-right">Disabled text</label>
+
+                                <div class="col-md-6">
+                                    <textarea
+                                        class="form-control"
+                                        name="disabled_text"
+                                        id="disabled_text"
+                                        placeholder="Disabled text"
+                                        required
+                                        cols="30"
+                                        rows="10">{!! $board->disabled_text !!}</textarea>
                                 </div>
                             </div><!--form-group-->
 

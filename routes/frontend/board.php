@@ -14,5 +14,6 @@ use Tabuna\Breadcrumbs\Trail;
  */
 Route::group(['middleware' => ['auth', 'password.expires', config('boilerplate.access.middleware.verified')]], function () {
     Route::resource('board', BoardController::class);
+    Route::get('board/{board}/sendStatus', [BoardController::class, 'sendStatus'])->name('board.sendStatus');
 });
 Route::get('board/updateActivity/{boardExternalId}', [BoardController::class, 'updateActivity']);

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\BoardHistory;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use Illuminate\Validation\UnauthorizedException;
 
@@ -12,7 +14,10 @@ class BoardController extends Controller
     private $rules = [
         'external_id' => 'string|required',
         'chat_id' => 'string|required',
-        'timeout' => 'int|required'
+        'timeout' => 'int|required',
+        'disabled_notifications' => 'nullable',
+        'enabled_text' => 'string|required',
+        'disabled_text' => 'string|required',
     ];
 
     /**
@@ -49,6 +54,18 @@ class BoardController extends Controller
     }
 
     /**
+     *
+     *
+     * @param  \App\Models\Board  $board
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendStatus(Board $board): \Illuminate\Http\RedirectResponse
+    {
+        $board->sendStatus();
+        return redirect()->back();
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -58,8 +75,9 @@ class BoardController extends Controller
     public function update(Request $request, Board $board)
     {
         $data = $request->validate($this->rules);
+        $data['disabled_notifications'] = isset($data['disabled_notifications']) ? true : false;
         $board->update($data);
-        return redirect()->route('frontend.board.index')->withFlashSuccess('The board changed.');
+        return redirect()->route('frontend.board.edit', $board)->withFlashSuccess('The board changed.');
     }
 
     /**

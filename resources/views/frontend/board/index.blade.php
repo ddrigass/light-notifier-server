@@ -26,6 +26,7 @@
                                 <th>Last activity</th>
                                 <th>Timeout</th>
                                 <th>Active</th>
+                                <th>Send status</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -42,6 +43,7 @@
                                             {{ $board->active ?  'Online' : 'Offline' }}
                                         </div>
                                     </td>
+                                    <td><a href="{{route('frontend.board.sendStatus', $board)}}" class="btn btn-info">Send status</a></td>
                                     <td>
                                         <a href="{{route('frontend.board.edit', $board)}}" class="btn btn-success">Edit</a>
                                         <x-forms.delete :action="route('frontend.board.destroy', $board)">

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Board;
 use Illuminate\Console\Command;
 
 class DailyNotificator extends Command
@@ -37,6 +38,8 @@ class DailyNotificator extends Command
      */
     public function handle()
     {
+        $boards = Board::all();
+        $boards->map(fn ($board) => $board->sendStatus());
         return 0;
     }
 }

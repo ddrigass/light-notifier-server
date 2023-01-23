@@ -148,6 +148,8 @@ return [
          */
         'languages' => [
             'en' => ['name' => 'English', 'rtl' => false],
+            'ru' => ['name' => 'Rosiyska', 'rtl' => false],
+            'ua' => ['name' => 'Ukrainian', 'rtl' => false],
         ],
     ],
 

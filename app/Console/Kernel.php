@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('boards:check')->everyMinute();
+        $schedule->command('notificator:daily')->dailyAt('23:59:59');
     }
 
     /**
